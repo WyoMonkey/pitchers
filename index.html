@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  
+  <!-- Bootstrap v4.x stylesheet -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+  <!-- bootstrap css theme -->
+  <link rel="stylesheet" href="tablesorter/css/theme.bootstrap_4.css">
+
+  <!--<script src="tablesorter/docs/js/jquery-latest.js"></script>-->
+  <script src="tablesorter/js/jquery.tablesorter.js"></script>
+  <script src="tablesorter/js/jquery.tablesorter.widgets.js"></script>
+
+  
+<script>
+$(function() {
+
+  $("table").tablesorter({
+    theme : "bootstrap",
+
+    widthFixed: true,
+
+    // widget code contained in the jquery.tablesorter.widgets.js file
+    // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+    // the uitheme widget is NOT REQUIRED!
+    widgets : [ "filter", "columns", "zebra" ],
+
+    widgetOptions : {
+      // using the default zebra striping class name, so it actually isn't included in the theme variable above
+      // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+      zebra : ["even", "odd"],
+
+      // class names added to columns when sorted
+      columns: [ "primary", "secondary", "tertiary" ],
+
+      // reset filters button
+      filter_reset : ".reset",
+
+      // extra css class name (string or array) added to the filter element (input or select)
+      filter_cssFilter: [
+        'form-control',
+        'form-control',
+        'form-control custom-select', // select needs custom class names :(
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control'
+      ]
+
+    }
+  })
+  
+  });
+
+
+</script>
+<script>
+  var spreadsheet = "https://docs.google.com/spreadsheets/d/1U96rriFYdKYyGwalw9LwHHMpw-rPoJb4Uu9zDRInJFQ/edit#gid=0";
+
+    $(document).ready(function(){
+      $('#pitchers').sheetrock({
+        url: spreadsheet, 
+        query: "select A,B,C,D,E,F,G"
+      });
+    });
+</script>
+  
+
+
+
+
+
+</head>
+<div class="container">
+<body>
+ <table id="pitchers" class="table table-bordered table-striped">
+  <thead class="thead-dark"> <!-- add class="thead-light" for a light header -->
+    <tr>
+      <th>RTG</th>
+      <th>Player</th>
+      <th class="filter-select filter-exact" data-placeholder="Pick a gender">Team</th>
+      <th>Hand</th>
+      <th>Price</th>
+      <th>Opp</th>
+      <th>ML</th>
+      <!--<th>Opp TTL</th>
+      <th>Park</th>
+      <th>WHIP</th>
+      <th>wOBA</th>
+      <th>wDif</th>
+      <th>xOBA</th>
+      <th>xDiff</th>
+      <th>K/9</th>
+      <th>KDiff</th>
+      <th>Opp K/9</th>
+      <th>HC %</th>
+      <th>GB %</th>
+      <th class="sorter-false filter-false">EV L15</th></tr>-->
+  </thead>
+  
+    
+  
+  
+</div>
+   <tbody>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script> 
+ </tbody>
+</body>
+</html>
