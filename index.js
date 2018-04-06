@@ -49,7 +49,7 @@
 
     }
   });
-  }, 1000); 
+  }, 500); 
     $("table").trigger("update");
     console.log()
   });
