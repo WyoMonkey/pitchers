@@ -3,7 +3,7 @@
     $(document).ready(function(){
       $('#pitchers').sheetrock({
         url: spreadsheet, 
-        query: "select A,B,C,D,E,F,G",
+        query: "select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T",
         callback: function draw(error, options, response) {
   if (error) {
     console.log('fail');
